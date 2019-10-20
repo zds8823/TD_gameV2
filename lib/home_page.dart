@@ -133,19 +133,26 @@ class _HomePageState extends State<HomePage> {
 
   void playGame(GameButton gb) {
     setState(() {
-      if (activePlayer == 1) {
-        gb.text = "X";
+      if (tower >= 1) {
+        gb.text = towert;
+        if (tower == 1) {
+          //change these to sprites
         gb.bg = Colors.red;
-        activePlayer = 2;
-        player1.add(gb.id);
-      } else {
-        gb.text = "0";
-        gb.bg = Colors.black;
-        activePlayer = 1;
-        player2.add(gb.id);
+        }
+        if (tower == 2) {
+          gb.bg = Colors.green;
+        }
+        if (tower == 3) {
+          gb.bg = Colors.yellow;
+        }
+        if (tower == 4) {
+          gb.bg = Colors.blue;
+        }
       }
+
       gb.enabled = false;
       int winner = checkWinner();
+
       if (winner == -1) {
         if (buttonsList.every((p) => p.text != "")) {
           showDialog(
@@ -163,8 +170,7 @@ class _HomePageState extends State<HomePage> {
     var emptyCells = new List();
     var list = new List.generate(9, (i) => i + 1);
     for (var cellID in list) {
-      if (!(player1.contains(cellID) || player2.contains(cellID))) {
-        emptyCells.add(cellID);
+      if (!(player1.contains(cellID))) {
       }
     }
 
@@ -182,23 +188,35 @@ class _HomePageState extends State<HomePage> {
       winner = 1;
     }
 
-    if (winner != -1) {
       if (winner == 1) {
         showDialog(
             context: context,
             builder: (_) => new CustomDialog("Player 1 Won",
                 "Press the reset button to start again.", resetGame));
-      } else {
-        showDialog(
-            context: context,
-            builder: (_) => new CustomDialog("Player 2 Won",
-                "Press the reset button to start again.", resetGame));
       }
-    }
-
     return winner;
   }
 
+
+  String towert  = "0";
+  var tower =0;
+
+  void settower1(){
+    towert = "1";
+    tower = 1;
+  }
+  void settower2(){
+    towert = "2";
+    tower = 2;
+  }
+  void settower3(){
+    towert = "3";
+    tower = 3;
+  }
+  void settower4(){
+    towert = "4";
+    tower = 4;
+  }
   void resetGame() {
     if (Navigator.canPop(context)) Navigator.pop(context);
     setState(() {
@@ -224,14 +242,14 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   new Text(
-                      "Element 1"
+                      "Element 1",
 
                   ),
                   new Text(
-                      "Element 2"
+                      "Element 2",
                   ),
                   new Text(
-                      "Element 3"
+                      "Element 3",
                   ),
                 ],
               ),
@@ -276,34 +294,34 @@ class _HomePageState extends State<HomePage> {
                    ),
                     color: Colors.red,
                     padding: const EdgeInsets.all(20.0),
-                    onPressed: resetGame,
+                    onPressed: settower1,
                   ),
                   new RaisedButton(
                      child: new Text(
                        "Tower 2",
-                    style: new TextStyle(color: Colors.white, fontSize: 10.0),
+                       style: new TextStyle(color: Colors.white, fontSize: 10.0),
                     ),
                     color: Colors.green,
                     padding: const EdgeInsets.all(20.0),
-                    onPressed: resetGame,
+                    onPressed: settower2,
                   ),
                   new RaisedButton(
                     child: new Text(
                       "Tower 3",
                       style: new TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
+                                          ),
                     color: Colors.yellow,
                     padding: const EdgeInsets.all(20.0),
-                    onPressed: resetGame,
+                    onPressed: settower3,
                   ),
                   new RaisedButton(
                      child: new Text(
                        "Tower 4",
-                    style: new TextStyle(color: Colors.white, fontSize: 10.0),
+                      style: new TextStyle(color: Colors.white, fontSize: 10.0),
                   ),
                     color: Colors.blue,
                     padding: const EdgeInsets.all(20.0),
-                    onPressed: resetGame,
+                    onPressed: settower4,
                   )
                 ],
               ),
