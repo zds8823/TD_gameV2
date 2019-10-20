@@ -157,6 +157,7 @@ class _HomePageState extends State<HomePage> {
 
       if (winner == -1) {
         if (buttonsList.every((p) => p.text != "")) {
+
           showDialog(
               context: context,
               builder: (_) => new CustomDialog("Game Tied",
@@ -184,6 +185,23 @@ class _HomePageState extends State<HomePage> {
 
   }
 
+  void mapping(GameButton gb) {
+    setState(() {
+      var r = new Random();
+
+      var emptyCells = new List();
+
+      var randIndex = r.nextInt(emptyCells.length-1);
+      var cellID = emptyCells[randIndex];
+
+      int i = buttonsList.indexWhere((p)=> p.id == cellID);
+      playGame(buttonsList[i]);
+
+      if (buttonsList[i] == 11) {
+        gb.bg = Colors.cyanAccent;
+      }
+    });
+  }
   int checkWinner() {
     var winner = -1;
     if (player1.contains(1) && player1.contains(2) && player1.contains(3)) {
@@ -273,6 +291,7 @@ class _HomePageState extends State<HomePage> {
                   height: 2.0,
                   child: new RaisedButton(
                     padding: const EdgeInsets.all(8.0),
+
                     onPressed: buttonsList[i].enabled
                         ? () => playGame(buttonsList[i])
                         : null,
