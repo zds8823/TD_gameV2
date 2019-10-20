@@ -130,10 +130,13 @@ class _HomePageState extends State<HomePage> {
       new GameButton(id: 96),
 
     ];
+
     return gameButtons;
   }
+  
 
   void playGame(GameButton gb) {
+
     setState(() {
 
       if (tower >= 1) {
@@ -153,9 +156,6 @@ class _HomePageState extends State<HomePage> {
         }
       }
 
-      if (gb.id == 11){
-        gb.bg = Colors.cyanAccent;
-      }
 
       gb.enabled = false;
       int winner = checkWinner();
@@ -174,9 +174,11 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+
+
   void autoPlay() {
     var emptyCells = new List();
-    var list = new List.generate(9, (i) => i + 1);
+    var list = new List.generate(96, (i) => i + 1);
     for (var cellID in list) {
       if (!(player1.contains(cellID))) {
       }
@@ -190,15 +192,7 @@ class _HomePageState extends State<HomePage> {
 
   }
 
-  Future<void> mapping(GameButton gb)async {
-    setState(() {
-      if (gb.id == 11){
-        gb.bg = Colors.cyanAccent;
 
-      }
-    });
-
-  }
   int checkWinner() {
     var winner = -1;
     if (player1.contains(1) && player1.contains(2) && player1.contains(3)) {
@@ -234,6 +228,7 @@ class _HomePageState extends State<HomePage> {
     towert = "4";
     tower = 4;
   }
+
   void resetGame() {
     if (Navigator.canPop(context)) Navigator.pop(context);
     setState(() {
@@ -241,10 +236,23 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
+    buttonsList[10].bg = Colors.cyanAccent;
+    buttonsList[11].bg = Colors.brown;
+    buttonsList[12].bg = Colors.brown;
+    buttonsList[13].bg = Colors.brown;
+    buttonsList[14].bg = Colors.brown;
+    buttonsList[22].bg = Colors.brown;
+    buttonsList[30].bg = Colors.brown;
+    buttonsList[38].bg = Colors.brown;
+    buttonsList[46].bg = Colors.brown;
+    buttonsList[54].bg = Colors.brown;
+    buttonsList[62].bg = Colors.brown;
+    buttonsList[70].bg = Colors.brown;
+    buttonsList[78].bg = Colors.brown;
+    buttonsList[86].bg = Colors.pink;
+
     return new Scaffold(
         appBar: new AppBar(
           title: new Text("game test"),
@@ -351,7 +359,7 @@ class _HomePageState extends State<HomePage> {
 
           ],
         ));
-
-
   }
+
+
 }
