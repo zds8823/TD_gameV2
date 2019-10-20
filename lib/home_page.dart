@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
       if (tower >= 1) {
         gb.text = towert;
         if (tower == 1) {
-          //change these to sprites
+          //change these colors to sprites
         gb.bg = Colors.red;
         }
         if (tower == 2) {
@@ -197,9 +197,9 @@ class _HomePageState extends State<HomePage> {
     return winner;
   }
 
-
-  String towert  = "0";
-  var tower =0;
+//Sets the squares to the tower type
+  String towert  = "1";
+  var tower =1;
 
   void settower1(){
     towert = "1";
