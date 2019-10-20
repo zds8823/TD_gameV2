@@ -5,6 +5,8 @@ import 'package:flutter_app/custom_dailog.dart';
 import 'package:flutter_app/game_button.dart';
 import 'package:flutter_app/components/time.dart';
 import 'package:flutter_app/components/dependencies.dart';
+import 'package:flutter_app/components/map.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -242,14 +244,16 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   new Text(
-                      "Element 1",
-
+                      "Timer",
                   ),
                   new Text(
-                      "Element 2",
+                    "Score: 0",
                   ),
                   new Text(
-                      "Element 3",
+                    "Lives: 30",
+                  ),
+                  new Text(
+                      "Money",
                   ),
                 ],
               ),
