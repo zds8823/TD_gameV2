@@ -239,6 +239,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
+
     buttonsList[10].bg = Colors.cyanAccent;
     buttonsList[11].bg = Colors.brown;
     buttonsList[12].bg = Colors.brown;
@@ -253,8 +254,6 @@ class _HomePageState extends State<HomePage> {
     buttonsList[70].bg = Colors.brown;
     buttonsList[78].bg = Colors.brown;
     buttonsList[86].bg = Colors.pink;
-
-    make_path();
 
     return new Scaffold(
         appBar: new AppBar(
