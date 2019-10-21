@@ -209,23 +209,23 @@ class _HomePageState extends State<HomePage> {
   }
 
 //Sets the squares to the tower type
-  String towert  = "1";
+  String towert  = "";
   var tower =1;
 
   void settower1(){
-    towert = "1";
+    towert = "";
     tower = 1;
   }
   void settower2(){
-    towert = "2";
+    towert = "";
     tower = 2;
   }
   void settower3(){
-    towert = "3";
+    towert = "";
     tower = 3;
   }
   void settower4(){
-    towert = "4";
+    towert = "";
     tower = 4;
   }
 
@@ -238,6 +238,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     buttonsList[10].bg = Colors.cyanAccent;
     buttonsList[11].bg = Colors.brown;
     buttonsList[12].bg = Colors.brown;
@@ -252,6 +253,8 @@ class _HomePageState extends State<HomePage> {
     buttonsList[70].bg = Colors.brown;
     buttonsList[78].bg = Colors.brown;
     buttonsList[86].bg = Colors.pink;
+
+    make_path();
 
     return new Scaffold(
         appBar: new AppBar(
