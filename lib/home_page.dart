@@ -1,4 +1,7 @@
 import 'dart:math';
+import 'package:flame/flame.dart';
+import 'dart:ui';
+import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/custom_dailog.dart';
@@ -6,6 +9,11 @@ import 'package:flutter_app/game_button.dart';
 import 'package:flutter_app/components/time.dart';
 import 'package:flutter_app/components/dependencies.dart';
 import 'package:flutter_app/components/map.dart';
+import 'package:flutter_app/components/enemy.dart';
+
+bool gameOver = false;
+const DRAGON_SIZE = 40.0;
+const DRAGONSPEED = 120.0;
 
 
 class HomePage extends StatefulWidget {
@@ -133,9 +141,35 @@ class _HomePageState extends State<HomePage> {
 
     return gameButtons;
   }
-  
 
-  void playGame(GameButton gb) {
+  bool checkOnce = true;
+
+  List<Dragon> dragonList = <Dragon>[];
+  Size dimenstions;
+
+
+
+
+  double creationTimer = 0.0;
+  @override
+  void update(double t) {
+    creationTimer += t;
+    if (creationTimer >= 4) {
+      creationTimer = 0.0;
+
+      for (int i = 1; i <= DRAGON_SIZE / 7; i++) {
+        for (int j = 0; j < i; ++j) {
+          dragon = new Dragon(dimenstions, i, j);
+          dragonList.add(dragon);
+          add(dragon);
+        }
+      }
+    }
+    super.update(t);
+  }
+
+
+  void playGame(GameButton gb)  {
 
     setState(() {
 
@@ -361,7 +395,7 @@ class _HomePageState extends State<HomePage> {
 
           ],
         ));
+    }
+
+
   }
-
-
-}
