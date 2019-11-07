@@ -1,16 +1,27 @@
 # flutter_app
 
-A new Flutter application.
+This flutter application is a prototype for a Tower Defence game. We currently have the basic
+layout of the game, timer, lives, and one enemy. The player is able to place 4 different types of
+towers around the path but the towers currently cant do damage to the enemy so we have
+not implemented the score or tower upgrades.
 
+How to play:
+click on one of the four tower buttons to choose what type of tower you would like to place 
+then click the square you would like to place your tower in. Each tower has a price and if you do
+not have enough gold then you will not be able to place anymore towers
+(currently all towers cost 20 gold)
+
+if the game was complete the towers would damage the enemy and you would receive gold and
+score points.
+ 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To test the application make sure your project name is "flutter_app"
 
-A few resources to get you started if this is your first Flutter project:
+Plugins you may also need in order to  compile
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+-Dart 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-Flutter
+
+-Dart Data Class
